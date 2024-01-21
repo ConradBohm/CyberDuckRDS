@@ -49,4 +49,5 @@ resource "aws_db_instance_automated_backups_replication" "main_instance_bacup" {
     source_db_instance_arn = aws_db_instance.aws_rds.arn
     kms_key_id = aws_kms_key.rds_kms_key.arn
     retention_period = 7
+    provider = aws.replica
 }
