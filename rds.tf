@@ -33,7 +33,7 @@ resource "aws_db_instance" "aws_rds_replica" {
     #maintenance_window = "mon:03:00-mon:04:30"
 
     vpc_security_group_ids = [aws_security_group.rds_sg.id]
-    db_subnet_group_name = aws_db_subnet_group.rds_subnet_group.name
+    #db_subnet_group_name = aws_db_subnet_group.rds_subnet_group.name
     storage_encrypted = true
     kms_key_id = aws_kms_key.rds_kms_key.arn
 
@@ -47,7 +47,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 
 resource "aws_db_instance_automated_backups_replication" "main_instance_bacup" {
     source_db_instance_arn = aws_db_instance.aws_rds.arn
-    kms_key_id = aws_kms_key.rds_kms_key.arn
+    #kms_key_id = aws_kms_key.rds_kms_key.arn
     retention_period = 7
     provider = aws.replica
 }
