@@ -21,8 +21,6 @@ resource "aws_db_instance" "aws_rds" {
 resource "aws_db_instance" "aws_rds_replica" {
     replicate_source_db = aws_db_instance.aws_rds.identifier
     identifier = "cyberduck-rds-replica"
-    username = "root_user"
-    manage_master_user_password = true
     multi_az = true
 
     engine = "mysql"
