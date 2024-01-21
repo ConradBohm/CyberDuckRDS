@@ -1,6 +1,6 @@
 resource "aws_db_instance" "aws_rds" {
     db_name = "cyberduck_rds"
-    username = "default"
+    username = "root_user"
     manage_master_user_password = true
     multi_az = true
 
