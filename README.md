@@ -14,7 +14,7 @@ The VPC config was just a basic set up across two avalability zones so that I co
 A key used to encrypt the data in the RDS database.
 
 ## GitHub Actions Pipeline
-Here is where the terraform code is tested and applied. Terraform Validate makes sure that my code is syntactically correct, Plan shows me what my new terraform code will do, and Apply makes those changes laid out in the Plan step.
+Here is where the terraform code is tested and applied. Terraform Validate makes sure that my code is syntactically correct, Plan shows me what my new terraform code will do, and Apply makes those changes laid out in the Plan step. The Apply step has been configured to only run when changes are merged into the `main` branch, as to not have any accidental or disallowed changes to the resources.
 
 The terraform commands are run in a Terraform Cloud workspace, which is accessed via the API key stored as a secret in the GitHub repository's secrets. The terraform workspace then has access to the AWS credentials needed to make changes to the account. To replicate the code changes, those account settings need to be configured.
 
