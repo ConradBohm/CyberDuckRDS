@@ -10,7 +10,7 @@ resource "aws_db_instance" "aws_rds" {
     allocated_storage = 50
     backup_retention_period = 7
     backup_window = "00:00-01:00"
-    #maintenance_window = "mon:04:00-mon:04:30"
+    #maintenance_window = "mon:03:00-mon:04:30"
 
     vpc_security_group_ids = [aws_security_group.rds_sg.id]
     db_subnet_group_name = aws_db_subnet_group.rds_subnet_group.name
@@ -28,7 +28,9 @@ resource "aws_db_instance" "aws_rds_replica" {
     engine = "mysql"
     engine_version = "8.0"
     instance_class = "db.t4g.large"
-    #maintenance_window = "mon:04:00-mon:04:30"
+    backup_retention_period = 7
+    backup_window = "00:00-01:00"
+    #maintenance_window = "mon:03:00-mon:04:30"
 
     vpc_security_group_ids = [aws_security_group.rds_sg.id]
     db_subnet_group_name = aws_db_subnet_group.rds_subnet_group.name
