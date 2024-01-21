@@ -1,7 +1,7 @@
 resource "aws_db_instance" "aws_rds" {
     identifier = "cyberduck-rds"
-    username = "root_user"
-    manage_master_user_password = true
+    username = var.username
+    password = var.password
     multi_az = true
 
     engine = "mysql"
@@ -47,7 +47,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 
 resource "aws_db_instance_automated_backups_replication" "main_instance_bacup" {
     source_db_instance_arn = aws_db_instance.aws_rds.arn
-    #kms_key_id = aws_kms_key.rds_kms_key.arn
+    kms_key_id = aws_kms_key.rds_kms_key.arn
     retention_period = 7
     provider = aws.replica
 }
