@@ -5,7 +5,7 @@ resource "aws_db_instance" "aws_rds" {
     multi_az = true
 
     engine = "mysql"
-    engine_version = "8.1"
+    engine_version = "8.0"
     instance_class = "db.t4g.large"
     allocated_storage = 50
     #maintenance_window = "mon:04:00-mon:04:30"
@@ -24,7 +24,7 @@ resource "aws_db_instance" "aws_rds_replica" {
     multi_az = true
 
     engine = "mysql"
-    engine_version = "8.1"
+    engine_version = "8.0"
     instance_class = "db.t4g.large"
     allocated_storage = 50
     #maintenance_window = "mon:04:00-mon:04:30"
